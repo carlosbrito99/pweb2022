@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+
+<head>
+	<meta charset="UTF-8">
+	<title>Page Title</title>
+</head>
+
+<body>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Raca</th>
+				<th scope="col">NivelDePoder</th>
+				<th scope="col">Transformacao</th>
+				<th scope="col">Codigo</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="saiyajin: ${listarSaiyajins}" >
+				<td th:text="${saiyajin.raca}"></td>
+				<td th:text="${saiyajin.niveldepoder}"></td>
+				<td th:text="${saiyajin.transformacao}"></td>
+				<td th:text="${saiyajin.codigo}"></td>
+				<td> <a th:href="@{/saiyajin/excluir/{codigo}(codigo = ${saiyajin.codigo})}"> <button type="button" class="btn btn-danger">Excluir</button></a></td>
+				
+				
+			</tr>
+			
+			<nav class="navbar navbar-expand-lg navbar-light bg-light">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="/saiyajin/listar">&#99100;</a>
+					<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+						data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarSupportedContent">
+						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+							<li class="nav-item dropdown">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+									data-bs-toggle="dropdown" aria-expanded="false">
+									Menu de Cadastro Saiyajin
+								</a>
+								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+									<li><a class="dropdown-item" href="/saiyajin/formulario">Cadastrar Novos Saiyajins</a></li>
+									<li><a class="dropdown-item" href="/saiyajin/listar">Listar Os Saiyajins</a></li>				
+									<li>
+										<hr class="dropdown-divider">
+									</li>
+									<li><a class="dropdown-item" href="#">A new thing here</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+			
+		</tbody>
+	</table>
+
+
+
+
+
+	<script src="/js/bootstrap.min.js"> </script>
+</body>
+
+</html>
